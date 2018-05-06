@@ -57,7 +57,10 @@ app.get('/about', (req, res)=>{
     });
 });
 
-
+// Code to handle 404 errors. Must place this as the last route.
+app.get('*', (req, res)=>{
+    res.render('404', {pageTitle : '404', url: req.url});
+});
 
 app.listen(3000, ()=>{
     console.log('Server started');    
